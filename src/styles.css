@@ -1,0 +1,91 @@
+ul {
+  list-style: none;
+}
+.container {
+  padding: 50px;
+}
+.NavLink {
+  color: blue;
+  font-size: 24px;
+}
+.NavLink--active {
+  color: purple;
+  font-size: 24px;
+}
+.main_nav {
+  display: flex;
+}
+.main_nav-item {
+  margin-right: 30px;
+}
+.tranding-movies_list {
+  margin: -20px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.tranding-movies_list-item {
+  margin: 20px;
+  box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
+  width: 250px;
+  padding: 15px;
+}
+.movie-title {
+  text-align: center;
+  font-weight: bold;
+}
+.movie-poster {
+  max-width: 250px;
+}
+.page-title {
+  text-align: center;
+}
+.SearchForm-button {
+  background-color: rgb(211, 209, 209);
+  color: black;
+  outline: none;
+  border-radius: 5px;
+  width: 100px;
+  margin-right: 30px;
+  padding: 5px;
+}
+.SearchForm-button:hover,
+.SearchForm-button:focus {
+  background-color: aquamarine;
+  cursor: pointer;
+}
+.SearchForm-input {
+  width: 250px;
+  border-radius: 5px;
+  padding: 5px;
+  outline: none;
+}
+.SearchForm-input:hover {
+  background-color: aquamarine;
+}
+.details-movie-card {
+  padding: 10px 20px;
+  display: flex;
+  width: 1000px;
+}
+.movie-decription {
+  margin-left: 25px;
+}
+.artist-name {
+  margin: 0;
+  font-weight: bold;
+}
+.artist-poster {
+  width: inherit;
+}
+.list-artists {
+  display: flex;
+  flex-wrap: wrap;
+  margin: -15px;
+}
+.list-artists_item {
+  margin: 15px;
+  border: solid 1px gray;
+  width: 150px;
+  padding: 10px;
+  text-align: center;
+}
