@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { API_KEY, BASE_URL } from "./variables.js";
+import { API_KEY, BASE_URL } from "../variables.js";
 
 class Reviews extends Component {
   state = {
@@ -15,15 +15,16 @@ class Reviews extends Component {
   }
   render() {
     const { reviews } = this.state;
+    console.log(reviews);
     return (
       <>
         <h1 className="page-title">Reviews</h1>
         {reviews.length !== 0 ? (
           <ul>
             {reviews.map(({ id, content, author }) => (
-              <li key={id}>
-                <p>{content}</p>
-                <p>{author}</p>
+              <li key={id} className="review">
+                <p className="review-content">{content}</p>
+                <p className="review-author">Author: {author}</p>
               </li>
             ))}
           </ul>

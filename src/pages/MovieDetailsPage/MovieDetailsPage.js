@@ -1,15 +1,18 @@
+/* eslint-disable no-unused-vars */
 import React, { Component } from "react";
 import axios from "axios";
 import { Route, NavLink, Switch } from "react-router-dom";
-import Cast from "../components/Cast";
-import Reviews from "../components/Reviews";
+import { Suspense, lazy } from "react";
 import {
   halfImgUrl,
   API_KEY,
   BASE_URL,
   defaultSrc,
-} from "../components/variables";
-import styles from "../styles.css";
+} from "../../components/variables";
+import styles from "../../styles.css";
+
+const Cast = lazy(() => import("../../components/Cast/Cast.js"));
+const Reviews = lazy(() => import("../../components/Reviews/Reviews.js"));
 
 class MovieDetailsPage extends Component {
   state = {
@@ -26,6 +29,7 @@ class MovieDetailsPage extends Component {
     );
     this.setState({ ...response.data });
   }
+
   render() {
     const { title, popularity, overview, backdrop_path, id } = this.state;
     return (
@@ -65,10 +69,12 @@ class MovieDetailsPage extends Component {
             </NavLink>
           </li>
         </ul>
-        <Switch>
-          <Route path="/movies/:movieId/cast" component={Cast} />
-          <Route path="/movies/:movieId/reviews" component={Reviews} />
-        </Switch>
+        <Suspense fallback={<h1>Downloading...</h1>}>
+          <Switch>
+            <Route path="/movies/:movieId/cast" component={Cast} />
+            <Route path="/movies/:movieId/reviews" component={Reviews} />
+          </Switch>
+        </Suspense>
       </>
     );
   }

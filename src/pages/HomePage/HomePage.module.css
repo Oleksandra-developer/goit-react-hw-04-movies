@@ -1,0 +1,41 @@
+ul {
+  list-style: none;
+}
+p,
+img {
+  margin: 0;
+}
+.container {
+  padding: 50px;
+}
+.trandingMoviesList {
+  margin: -20px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.trandingMoviesListItem {
+  margin: 20px;
+  box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
+  width: 250px;
+}
+.movieDecription {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-right: 15px;
+}
+
+.trandingMoviesListItem > a {
+  text-decoration: none;
+  color: black;
+}
+.movieTitle {
+  text-align: center;
+  font-weight: bold;
+  margin: 0;
+}
+.moviePoster {
+  max-width: 250px;
+}
+.pageTitle {
+  text-align: center;
+}

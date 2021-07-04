@@ -1,6 +1,10 @@
 ul {
   list-style: none;
 }
+p,
+img {
+  margin: 0;
+}
 .container {
   padding: 50px;
 }
@@ -18,27 +22,7 @@ ul {
 .main_nav-item {
   margin-right: 30px;
 }
-.tranding-movies_list {
-  margin: -20px;
-  display: flex;
-  flex-wrap: wrap;
-}
-.tranding-movies_list-item {
-  margin: 20px;
-  box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
-  width: 250px;
-  padding: 15px;
-}
-.movie-title {
-  text-align: center;
-  font-weight: bold;
-}
-.movie-poster {
-  max-width: 250px;
-}
-.page-title {
-  text-align: center;
-}
+
 .SearchForm-button {
   background-color: rgb(211, 209, 209);
   color: black;
@@ -88,4 +72,21 @@ ul {
   width: 150px;
   padding: 10px;
   text-align: center;
+}
+.review-author {
+  font-weight: bold;
+  text-align: right;
+}
+.review-content {
+  border: gray;
+}
+.review {
+  margin: 10px;
+  box-shadow: hsla(hue, saturation, lightness, alpha);
+}
+.page-title {
+  text-align: center;
+}
+.movie-poster {
+  max-width: 400px;
 }

@@ -1,9 +1,23 @@
-import "./App.css";
+/* eslint-disable no-unused-vars */
+import { Suspense, lazy } from "react";
 import { Route, NavLink, Switch } from "react-router-dom";
-import HomePage from "./pages/HomePage";
-import MoviesPage from "./pages/MoviesPage";
-import MovieDetailsPage from "./pages/MovieDetailsPage";
 import styles from "./styles.css";
+
+const HomePage = lazy(
+  () =>
+    import("./pages/HomePage/HomePage.js") /* webpackChunkName: "home-page" */
+);
+const MoviesPage = lazy(
+  () =>
+    import(
+      "./pages/MoviePage/MoviesPage.js"
+    ) /* webpackChunkName: "movies-page" */
+);
+const MovieDetailsPage = lazy(() =>
+  import(
+    "./pages/MovieDetailsPage/MovieDetailsPage.js" /* webpackChunkName: "movie-details" */
+  )
+);
 
 const App = () => (
   <div className="container">
@@ -29,12 +43,13 @@ const App = () => (
         </NavLink>
       </li>
     </ul>
-
-    <Switch>
-      <Route exact path="/" component={HomePage} />
-      <Route exact path="/movies" component={MoviesPage} />
-      <Route path="/movies/:movieId" component={MovieDetailsPage} />
-    </Switch>
+    <Suspense fallback={<h1>Downloading...</h1>}>
+      <Switch>
+        <Route exact path="/" component={HomePage} />
+        <Route exact path="/movies" component={MoviesPage} />
+        <Route path="/movies/:movieId" component={MovieDetailsPage} />
+      </Switch>
+    </Suspense>
   </div>
 );
 

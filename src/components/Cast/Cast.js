@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { halfImgUrl, API_KEY, BASE_URL, defaultSrc } from "./variables.js";
+import { halfImgUrl, API_KEY, BASE_URL, defaultSrc } from "../variables.js";
 
 class Cast extends Component {
   state = {
