@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import axios from "axios";
 import { Route, NavLink, Switch } from "react-router-dom";
 import { Suspense, lazy } from "react";
@@ -29,20 +30,25 @@ class MovieDetailsPage extends Component {
     );
     this.setState({ ...response.data });
   }
-
+  onGoBack = () => {
+    const { location, history } = this.props;
+    if (location.state && location.state.from) {
+      return history.push(location.state.from);
+    }
+    history.push({
+      pathname: "/",
+    });
+  };
   render() {
     const { title, popularity, overview, backdrop_path, id } = this.state;
-    const { location, history } = this.props;
+
     return (
       <>
-        <button
-          type="button"
-          className="button"
-          onClick={() => history.push(location.state.from)}
-        >
+        <button type="button" className="button" onClick={this.onGoBack}>
           Go back
         </button>
-        {{ title } ? <h1 className="page-title">"{title}": details</h1> : null}
+
+        <h1 className="page-title">"{title}": details</h1>
         <div className="details-movie-card">
           <img
             className="movie-poster"
@@ -54,6 +60,7 @@ class MovieDetailsPage extends Component {
             <p className="movie-overview">{overview}</p>
           </div>
         </div>
+
         {/* Navigation-2 */}
         <ul>
           <li>
@@ -88,4 +95,11 @@ class MovieDetailsPage extends Component {
   }
 }
 
+MovieDetailsPage.propTypes = {
+  id: PropTypes.string,
+  popularity: PropTypes.string,
+  title: PropTypes.string,
+  overview: PropTypes.string,
+  backdrop_path: PropTypes.string,
+};
 export default MovieDetailsPage;

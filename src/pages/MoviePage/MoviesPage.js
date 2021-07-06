@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import { Link } from "react-router-dom";
 import moviesAPI from "../../services/movieAPI";
@@ -10,6 +11,7 @@ class MoviePage extends Component {
   state = {
     searchQuery: "",
     movies: [],
+    error: null,
   };
 
   componentDidMount() {
@@ -32,6 +34,7 @@ class MoviePage extends Component {
     this.setState({
       searchQuery: query,
       movies: [],
+      error: null,
     });
   };
   fetchMovies = () => {
@@ -42,6 +45,7 @@ class MoviePage extends Component {
       .then((movies) =>
         this.setState(() => ({
           movies: [...movies],
+          error: error,
         }))
       )
       .catch((error) => console.log(error));
@@ -58,4 +62,8 @@ class MoviePage extends Component {
   }
 }
 
+MoviePage.propTypes = {
+  searchQuery: PropTypes.string,
+  movies: PropTypes.array,
+};
 export default MoviePage;
