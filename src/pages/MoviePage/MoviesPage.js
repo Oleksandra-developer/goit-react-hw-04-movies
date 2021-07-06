@@ -4,6 +4,7 @@ import SearchBar from "../../components/SearchBar/SearchBar";
 import { Link } from "react-router-dom";
 import moviesAPI from "../../services/movieAPI";
 import styles from "../../styles.css";
+import MoviesList from "../../components/MovieList/MovieList";
 
 class MoviePage extends Component {
   state = {
@@ -51,13 +52,7 @@ class MoviePage extends Component {
         <h1 className="page-title">Search movies</h1>
         <SearchBar onSubmit={this.onChangeQuery} />
 
-        <ul>
-          {this.state.movies.map(({ id, title }) => (
-            <li key={id}>
-              <Link to={`${this.props.match.url}/${id}`}>{title}</Link>
-            </li>
-          ))}
-        </ul>
+        <MoviesList movies={this.state.movies} />
       </>
     );
   }

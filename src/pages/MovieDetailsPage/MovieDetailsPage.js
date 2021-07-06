@@ -32,8 +32,16 @@ class MovieDetailsPage extends Component {
 
   render() {
     const { title, popularity, overview, backdrop_path, id } = this.state;
+    const { location, history } = this.props;
     return (
       <>
+        <button
+          type="button"
+          className="button"
+          onClick={() => history.push(location.state.from)}
+        >
+          Go back
+        </button>
         {{ title } ? <h1 className="page-title">"{title}": details</h1> : null}
         <div className="details-movie-card">
           <img

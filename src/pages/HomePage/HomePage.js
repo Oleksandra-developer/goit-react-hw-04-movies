@@ -1,9 +1,9 @@
 /* eslint-disable no-unused-vars */
 import React, { Component } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
-import { halfImgUrl, API_KEY, BASE_URL } from "../../components/variables";
-import styles from "./HomePage.module.css";
+import MoviesList from "../../components/MovieList/MovieList";
+import { API_KEY, BASE_URL } from "../../components/variables";
+import styles from "../../styles.css";
 
 class HomePage extends Component {
   state = {
@@ -18,27 +18,8 @@ class HomePage extends Component {
   render() {
     return (
       <>
-        <h1 className={styles.pageTitle}>Tranding movies</h1>
-
-        <ul className={styles.trandingMoviesList}>
-          {this.state.trendingMovies.map(
-            ({ id, title, poster_path, overview }) => (
-              <li key={id} className={styles.trandingMoviesListItem}>
-                <Link to={`/movies/${id}`}>
-                  <div>
-                    <img
-                      className={styles.moviePoster}
-                      src={`${halfImgUrl}${poster_path}`}
-                      alt={title}
-                    />
-                    <p className={styles.movieTitle}>{title}</p>
-                    <p className={styles.movieDecription}>{overview}</p>
-                  </div>
-                </Link>
-              </li>
-            )
-          )}
-        </ul>
+        <h1 className="page-title">Tranding movies</h1>
+        <MoviesList movies={this.state.trendingMovies} />
       </>
     );
   }

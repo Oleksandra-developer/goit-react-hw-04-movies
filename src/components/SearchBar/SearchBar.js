@@ -18,11 +18,7 @@ class SearchBar extends Component {
     return (
       <header className="Searchbar">
         <form className="SearchForm" onSubmit={this.handleSubmit}>
-          <button
-            type="submit"
-            className="SearchForm-button"
-            onClick={this.handleSubmit}
-          >
+          <button type="submit" className="button" onClick={this.handleSubmit}>
             <span>Search</span>
           </button>
 
