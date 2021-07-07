@@ -26,7 +26,7 @@ class MoviePage extends Component {
     });
   };
   fetchMovies = () => {
-    console.log("fetchMovies", this.state.searchQuery);
+    // console.log("fetchMovies", this.state.searchQuery);
     const { searchQuery, movies, error } = this.state;
 
     return moviesAPI({ searchQuery, movies, error })

@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import { Suspense, lazy } from "react";
-import { Route, NavLink, Switch } from "react-router-dom";
+import { Route, NavLink, Switch, Redirect } from "react-router-dom";
 import styles from "./styles.css";
 
 const HomePage = lazy(
@@ -48,6 +48,7 @@ const App = () => (
         <Route exact path="/" component={HomePage} />
         <Route exact path="/movies" component={MoviesPage} />
         <Route path="/movies/:movieId" component={MovieDetailsPage} />
+        <Redirect to="/" />
       </Switch>
     </Suspense>
   </div>
